@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.safeargs)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
@@ -14,7 +15,7 @@ android {
         minSdk = 24
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,6 +38,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -74,4 +76,10 @@ dependencies {
     implementation(libs.workmanager)
 
     implementation(libs.hilt.worker)
+
+    implementation(libs.navigation)
+    implementation(libs.navigation.ui)
+
+    implementation(libs.glide)
+    ksp(libs.glide.compiler)
 }
